@@ -9,10 +9,10 @@
 
       <q-tabs>
         <q-route-tab to="/" label="Home" class="q-mx-md" />
-        <q-route-tab to="/calendar" label="Calendar" class="q-mx-md" />
+        <!-- <q-route-tab to="/calendar" label="Calendar" class="q-mx-md" /> -->
         <q-route-tab to="/posts" label="Oratory News" class="q-mx-md" />
         <q-route-tab to="/football" label="Akademia Futbol" class="q-mx-md" />
-        <q-route-tab to="/animators" label="Animators" class="q-mx-md" />
+        <q-route-tab to="/animators" label="Our Animators" class="q-mx-md" />
       </q-tabs>
       <q-space />
       <q-btn

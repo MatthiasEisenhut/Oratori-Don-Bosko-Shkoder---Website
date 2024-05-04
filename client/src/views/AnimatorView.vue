@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <q-page padding>
     <span>Animators</span>
-  </div>
+  </q-page>
 </template>

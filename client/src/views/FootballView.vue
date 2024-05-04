@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <q-page padding>
     <span>Football</span>
-  </div>
+  </q-page>
 </template>

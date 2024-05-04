@@ -19,7 +19,8 @@
     "express-async-handler": "^1.2.0",
     "is-my-json-valid": "^2.20.6",
     "morgan": "^1.10.0",
-    "pg": "^8.7.3"
+    "pg": "^8.7.3",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "eslint": "^8.17.0",

@@ -4,7 +4,7 @@ import FootBar from '@/components/FootBar.vue';
 </script>
 
 <template>
-  <q-layout class="font-montserrat" view="hHh lpR fff">
+  <q-layout class="font-montserrat " view="hHh lpr fff">
     <NavBar />
 
     <q-page-container>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <q-page padding>
     <span>Calendar</span>
-  </div>
+  </q-page>
 </template>

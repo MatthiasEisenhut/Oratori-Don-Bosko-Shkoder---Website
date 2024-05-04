@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <q-page padding>
     <span>Contact</span>
-  </div>
+  </q-page>
 </template>

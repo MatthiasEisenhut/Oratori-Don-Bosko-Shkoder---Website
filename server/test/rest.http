@@ -1,1 +1,14 @@
 GET http://localhost:3000/test
+#####################################
+GET http://localhost:3000/posts
+#####################################
+DELETE http://localhost:3000/posts/18727832-462b-4221-ba14-4c0fa1c6718d
+#####################################
+POST http://localhost:3000/posts
+Content-Type: application/json
+
+{
+  "title": "Post sent from server",
+  "body": "This is a post sent from the server",
+  "images": ["placeholder_image_1.jpg", "placeholder_image_2.jpg"]
+}

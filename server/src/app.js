@@ -3,7 +3,9 @@ import morgan from 'morgan';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import path from 'path';
+import { errorHandler, notFoundHandler } from '../middleware/errorHandler.js';
 import testRoute from './api/routes/test.js';
+import postRoute from './api/routes/posts.js';
 
 dotenv.config();
 
@@ -19,6 +21,10 @@ app.use(express.static(path.join(dirname, '/public')));
 app.use(express.json());
 
 app.use('/test', testRoute);
+app.use('/posts', postRoute);
+
+app.use(errorHandler);
+app.use(notFoundHandler);
 
 const PORT = process.env.PORT || 5000;
 

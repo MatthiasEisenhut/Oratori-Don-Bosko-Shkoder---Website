@@ -6,6 +6,7 @@ import path from 'path';
 import { errorHandler, notFoundHandler } from '../middleware/errorHandler.js';
 import testRoute from './api/routes/test.js';
 import postRoute from './api/routes/posts.js';
+import animatorRoute from './api/routes/animators.js';
 
 dotenv.config();
 
@@ -22,6 +23,7 @@ app.use(express.json());
 
 app.use('/test', testRoute);
 app.use('/posts', postRoute);
+app.use('/animators', animatorRoute);
 
 app.use(errorHandler);
 app.use(notFoundHandler);

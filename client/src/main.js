@@ -3,8 +3,6 @@ import './assets/main.css';
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
 import { Quasar } from 'quasar';
-import Plugin from '@quasar/quasar-ui-qcalendar/src/QCalendarDay.js';
-import '@quasar/quasar-ui-qcalendar/src/css/calendar-day.sass';
 
 // Import icon libraries
 import '@quasar/extras/material-icons/material-icons.css';
@@ -23,6 +21,5 @@ app.use(router);
 app.use(Quasar, {
   plugins: {}, // import Quasar plugins and add here
 });
-app.use(Plugin);
 
 app.mount('#app');

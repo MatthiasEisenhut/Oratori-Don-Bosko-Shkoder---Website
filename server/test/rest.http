@@ -12,3 +12,5 @@ Content-Type: application/json
   "body": "This is a post sent from the server",
   "images": ["placeholder_image_1.jpg", "placeholder_image_2.jpg"]
 }
+#####################################
+GET http://localhost:3000/animators

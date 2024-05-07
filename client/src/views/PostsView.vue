@@ -14,6 +14,8 @@ const pagination = ref({
   page: 1,
   rowsPerPage: 5,
 });
+const lorem =
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
 
 const posts = ref([]);
 const openPost = ref(false);
@@ -32,6 +34,10 @@ const shortStr = (str) => {
 const strToDt = (str) => {
   return new Date(str).toLocaleDateString('sq-AL');
 };
+
+const openPostDialog = () => {
+  openPost.value = true;
+};
 </script>
 
 <template>
@@ -43,6 +49,7 @@ const strToDt = (str) => {
       hide-header
       v-model:pagination="pagination"
       table-style="width: 75vw"
+      @row-click="openPostDialog"
     >
       <template #body-cell-image="props">
         <td>
@@ -57,6 +64,26 @@ const strToDt = (str) => {
         </td>
       </template>
     </q-table>
+    <q-dialog v-model="openPost" full-height
+      ><q-card class="my-card">
+        <q-card-section class="row items-center">
+          <div class="text-h6"></div>
+          <q-space />
+          <q-btn icon="close" flat round dense v-close-popup />
+        </q-card-section>
+
+        <img src="https://cdn.quasar.dev/img/mountains.jpg" />
+
+        <q-card-section>
+          <div class="text-h6">Our Changing Planet</div>
+          <div class="text-subtitle2">by John Doe</div>
+        </q-card-section>
+
+        <q-card-section class="q-pt-none">
+          {{ lorem }}
+        </q-card-section>
+      </q-card></q-dialog
+    >
   </q-page>
 </template>
 

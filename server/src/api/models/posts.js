@@ -3,7 +3,7 @@ import { query } from '../../db/index.js';
 
 const dbGetPosts = async () => {
   const { rows } = await query(
-    'SELECT posts.post_id, title, content, created_at, image_url FROM posts LEFT JOIN images ON posts.post_id = images.post_id ;',
+    'SELECT posts.*, json_agg(images.*) AS images FROM posts LEFT JOIN images ON posts.post_id = images.post_id GROUP BY posts.post_id ORDER BY posts.created_at DESC; ',
   );
   return rows;
 };

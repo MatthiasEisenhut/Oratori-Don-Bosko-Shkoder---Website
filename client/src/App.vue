@@ -1,6 +1,5 @@
 <script setup>
 import NavBar from '@/components/NavBar.vue';
-import FootBar from '@/components/FootBar.vue';
 </script>
 
 <template>
@@ -10,8 +9,6 @@ import FootBar from '@/components/FootBar.vue';
     <q-page-container>
       <router-view />
     </q-page-container>
-
-    <FootBar />
   </q-layout>
 </template>
 

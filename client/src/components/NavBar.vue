@@ -4,7 +4,7 @@
   <q-header elevated class="bg-primary text-white" height-hint="98">
     <q-toolbar class="q-my-sm">
       <q-avatar class="q-mx-md" size="xl">
-        <img src="@/assets/logo.jpeg" />
+        <img src="/images/logo.jpeg" />
       </q-avatar>
 
       <q-tabs>

@@ -4,7 +4,7 @@ import FootBar from '@/components/FootBar.vue';
 </script>
 
 <template>
-  <q-layout class="font-montserrat " view="hHh lpr fff">
+  <q-layout class="font-montserrat" view="hHh lpr fff">
     <NavBar />
 
     <q-page-container>
@@ -18,7 +18,7 @@ import FootBar from '@/components/FootBar.vue';
 <style>
 @font-face {
   font-family: montserrat;
-  src: url(./assets/fonts/Montserrat/Montserrat-Regular.ttf);
+  src: url(/fonts/montserrat/Montserrat-Regular.ttf);
 }
 
 .font-montserrat {

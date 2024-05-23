@@ -5,8 +5,8 @@ const lorem =
 
 <template>
   <q-page padding>
-    <div class="center">
-      <q-img src="/images/placeholder.jpg" width="75vw" height="75vh"
+    <div>
+      <q-img src="/images/placeholder.jpg" width="90vw" height="75vh"
         ><div class="absolute-full text-h1 flex flex-center">Home</div>
       </q-img>
       <div class="row q-my-md">

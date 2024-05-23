@@ -1,16 +1,20 @@
-import { ref } from 'vue';
 import { defineStore } from 'pinia';
 import axios from 'axios';
 
-export const useContactStore = defineStore('contacts', () => {
-  const data = ref(null);
-  async function fetchContacts() {
-    try {
-      const contacts = await axios.get('http://localhost:3000/contacts');
-      this.data = contacts;
-    } catch (err) {
-      console.log(err);
-    }
-  }
-  return { data, fetchContacts };
+export const useContactStore = defineStore('contacts', {
+  state: () => {
+    return {
+      contacts: [],
+    };
+  },
+  actions: {
+    async fetchContacts() {
+      try {
+        const { data } = await axios.get('http://localhost:3000/contacts');
+        this.contacts = data;
+      } catch (err) {
+        console.log(err);
+      }
+    },
+  },
 });

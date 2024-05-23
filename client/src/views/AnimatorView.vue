@@ -21,7 +21,7 @@ const clickedAnimator = ref(null);
 
 onMounted(async () => {
   await animatorStore.fetchAnimators();
-  animators.value = animatorStore.data;
+  animators.value = animatorStore.animators;
   console.log(animators.value);
 });
 
@@ -46,7 +46,7 @@ const openAnimatorDialog = (evt, row) => {
   <q-page padding>
     <q-table
       :columns="columns"
-      :rows="animators.data"
+      :rows="animators"
       hide-header
       v-model:pagination="pagination"
       table-style="width: 75vw"

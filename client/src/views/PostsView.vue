@@ -6,7 +6,6 @@ const postStore = usePostStore();
 const columns = [
   { name: 'image', label: 'Image', align: 'center', field: 'images' },
   { name: 'content', label: 'Content', align: 'left', field: 'content' },
-  { name: 'actions', label: 'Actions', align: 'center', field: 'actions' },
 ];
 const pagination = ref({
   sortBy: 'created_at',
@@ -22,7 +21,7 @@ const clickedPost = ref(null);
 
 onMounted(async () => {
   await postStore.fetchPosts();
-  posts.value = postStore.data;
+  posts.value = postStore.posts;
   console.log(posts.value);
 });
 
@@ -46,10 +45,9 @@ const openPostDialog = (evt, row) => {
   <q-page padding>
     <q-table
       :columns="columns"
-      :rows="posts.data"
+      :rows="posts"
       hide-header
       v-model:pagination="pagination"
-      table-style="width: 75vw"
       @row-click="openPostDialog"
     >
       <template #body-cell-image="props">

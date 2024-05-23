@@ -20,7 +20,7 @@
         label="Social"
         class="q-mx-md"
         href="https://www.instagram.com/oratori_db_shkoder/"
-        icon-right="fa-solid fa-arrow-right"
+        icon-right="fa-solid fa-arrow-up-right-from-square"
       />
       <q-btn flat label="Contact" class="q-mx-md" to="/contact" />
     </q-toolbar>

@@ -19,7 +19,7 @@ const contacts = ref([]);
 
 onMounted(async () => {
   await contactStore.fetchContacts();
-  contacts.value = contactStore.data;
+  contacts.value = contactStore.contacts;
   console.log(contacts.value);
 });
 </script>
@@ -28,7 +28,7 @@ onMounted(async () => {
   <q-page padding>
     <q-table
       :columns="columns"
-      :rows="contacts.data"
+      :rows="contacts"
       hide-header
       v-model:pagination="pagination"
       table-style="width: 75vw"

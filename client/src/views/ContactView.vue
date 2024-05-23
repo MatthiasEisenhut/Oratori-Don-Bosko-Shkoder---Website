@@ -25,7 +25,8 @@ onMounted(async () => {
 </script>
 
 <template>
-  <q-page padding>
+  <!-- TODO add loading animation for the table -->
+  <q-page padding class="row justify-center">
     <q-table
       :columns="columns"
       :rows="contacts"

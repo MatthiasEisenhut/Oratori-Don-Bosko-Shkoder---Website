@@ -42,7 +42,9 @@ const openPostDialog = (evt, row) => {
 </script>
 
 <template>
-  <q-page padding>
+  <!-- TODO add loading animation for the table -->
+  <!-- TODO add mobile layout -->
+  <q-page padding class="row justify-center">
     <q-table
       :columns="columns"
       :rows="posts"
@@ -62,7 +64,9 @@ const openPostDialog = (evt, row) => {
         <td>
           <p class="text-h4">{{ props.row.title }}</p>
           <p class="test-subtitle-2">{{ strToDt(props.row.created_at) }}</p>
-          <p class="text-body-1 text-wrap">{{ shortStr(props.row.content) }}</p>
+          <p class="text-body-1" style="word-break: normal; white-space: normal">
+            {{ shortStr(props.row.content) }}
+          </p>
         </td>
       </template>
     </q-table>

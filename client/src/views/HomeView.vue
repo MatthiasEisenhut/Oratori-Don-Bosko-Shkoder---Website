@@ -29,6 +29,7 @@ const lorem =
         <div class="col"><q-img src="/images/placeholder.jpg"></q-img></div>
       </div>
     </div>
+    <!-- TODO get this from the server -->
     <div class="q-pa-md row items-start q-gutter-md">
       <q-card class="my-card">
         <img src="https://cdn.quasar.dev/img/mountains.jpg" />

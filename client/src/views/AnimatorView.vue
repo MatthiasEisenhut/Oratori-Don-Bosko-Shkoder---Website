@@ -18,10 +18,12 @@ const pagination = ref({
 const animators = ref([]);
 const openAnimator = ref(false);
 const clickedAnimator = ref(null);
+const loading = ref(true);
 
 onMounted(async () => {
   await animatorStore.fetchAnimators();
   animators.value = animatorStore.animators;
+  loading.value = false;
   console.log(animators.value);
 });
 
@@ -43,7 +45,6 @@ const openAnimatorDialog = (evt, row) => {
 </script>
 
 <template>
-  <!-- TODO add loading animation for the table -->
   <q-page padding class="row justify-center">
     <q-table
       :columns="columns"
@@ -52,7 +53,11 @@ const openAnimatorDialog = (evt, row) => {
       v-model:pagination="pagination"
       table-style="width: 75vw"
       @row-click="openAnimatorDialog"
+      :loading="loading"
     >
+      <template v-slot:loading>
+        <q-inner-loading showing color="primary" />
+      </template>
       <template #body-cell-image="props">
         <td>
           <q-img

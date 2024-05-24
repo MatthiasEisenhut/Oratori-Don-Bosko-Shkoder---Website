@@ -18,10 +18,12 @@ const posts = ref([]);
 const openPost = ref(false);
 const slide = ref(0);
 const clickedPost = ref(null);
+const loading = ref(true);
 
 onMounted(async () => {
   await postStore.fetchPosts();
   posts.value = postStore.posts;
+  loading.value = false;
   console.log(posts.value);
 });
 
@@ -42,7 +44,6 @@ const openPostDialog = (evt, row) => {
 </script>
 
 <template>
-  <!-- TODO add loading animation for the table -->
   <!-- TODO add mobile layout -->
   <q-page padding class="row justify-center">
     <q-table
@@ -50,14 +51,20 @@ const openPostDialog = (evt, row) => {
       :rows="posts"
       hide-header
       v-model:pagination="pagination"
+      table-style="width: 75vw"
       @row-click="openPostDialog"
+      :loading="loading"
     >
+      <template v-slot:loading>
+        <q-inner-loading showing color="primary" />
+      </template>
       <template #body-cell-image="props">
         <td>
           <q-img
             :src="`http://localhost:3000/images/posts/${props.row.images[0].image_url}`"
             width="25vw"
-          ></q-img>
+          >
+          </q-img>
         </td>
       </template>
       <template #body-cell-content="props">

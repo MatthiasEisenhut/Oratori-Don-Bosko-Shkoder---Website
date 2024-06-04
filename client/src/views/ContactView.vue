@@ -33,6 +33,7 @@ onMounted(async () => {
       :rows="contacts"
       hide-header
       v-model:pagination="pagination"
+      table-style="width: 75vw"
       :loading="loading"
     >
       <template v-slot:loading>

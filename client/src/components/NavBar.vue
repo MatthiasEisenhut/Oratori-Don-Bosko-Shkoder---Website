@@ -4,7 +4,7 @@
   <q-header elevated class="bg-primary text-white" height-hint="98">
     <q-toolbar class="q-my-sm">
       <q-avatar class="q-mx-md" size="xl">
-        <img src="@/assets/logo.jpeg" />
+        <img src="/images/logo.jpeg" />
       </q-avatar>
 
       <q-tabs>
@@ -20,7 +20,7 @@
         label="Social"
         class="q-mx-md"
         href="https://www.instagram.com/oratori_db_shkoder/"
-        icon-right="fa-solid fa-arrow-right"
+        icon-right="fa-solid fa-arrow-up-right-from-square"
       />
       <q-btn flat label="Contact" class="q-mx-md" to="/contact" />
     </q-toolbar>

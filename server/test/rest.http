@@ -9,10 +9,34 @@ Content-Type: application/json
 
 {
   "title": "Post sent from server",
-  "body": "This is a post sent from the server",
+  "content": "This is a post sent from the server",
   "images": ["placeholder_image_1.jpg", "placeholder_image_2.jpg"]
 }
 #####################################
 GET http://localhost:3000/animators
 #####################################
+DELETE http://localhost:3000/animators/18727832-462b-4221-ba14-4c0fa1c6718d
+#####################################
+POST http://localhost:3000/animators
+Content-Type: application/json
+
+{
+  "name": "Animator sent from server",
+  "dateOfBirth": "1990-01-01",
+  "aboutMe": "This is an animator sent from the server",
+  "image": "mustermannMax.jpg"
+}
+#####################################
 GET http://localhost:3000/contacts
+#####################################
+DELETE http://localhost:3000/contacts/18727832-462b-4221-ba14-4c0fa1c6718d
+#####################################
+POST http://localhost:3000/contacts
+Content-Type: application/json
+
+{
+  "name": "Contact sent from server",
+  "email": "lorem.ipsum@email.com",
+  "phone": "+355 172 491 1005",
+  "image": "contact_image_placeholder.jpg"
+}

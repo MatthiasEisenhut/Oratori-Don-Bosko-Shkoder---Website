@@ -17,7 +17,7 @@ const dbDelAnimator = async (id) => {
 
 const dbAddAnimator = async (name, dateOfBirth, aboutMe, image) => {
   const { rows } = await query(
-    'INSERT INTO animators (animator_id, name, date_of_birth, about_me, image) VALUES ($1, $2, $3, $4, $5) RETURNING *;',
+    'INSERT INTO animators (animator_id, name, dateOfBirth, aboutMe, image) VALUES ($1, $2, $3, $4, $5) RETURNING *;',
     [uuidv4(), name, dateOfBirth, aboutMe, image],
   );
   return rows[0];

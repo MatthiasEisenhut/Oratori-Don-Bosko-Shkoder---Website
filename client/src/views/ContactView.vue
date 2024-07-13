@@ -16,23 +16,29 @@ const pagination = ref({
 });
 
 const contacts = ref([]);
+const loading = ref(true);
 
 onMounted(async () => {
   await contactStore.fetchContacts();
-  contacts.value = contactStore.data;
+  contacts.value = contactStore.contacts;
+  loading.value = false;
   console.log(contacts.value);
 });
 </script>
 
 <template>
-  <q-page padding>
+  <q-page padding class="row justify-center">
     <q-table
       :columns="columns"
-      :rows="contacts.data"
+      :rows="contacts"
       hide-header
       v-model:pagination="pagination"
       table-style="width: 75vw"
+      :loading="loading"
     >
+      <template v-slot:loading>
+        <q-inner-loading showing color="primary" />
+      </template>
       <template #body-cell-image="props">
         <td>
           <q-img

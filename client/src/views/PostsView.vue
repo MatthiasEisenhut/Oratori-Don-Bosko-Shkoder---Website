@@ -6,7 +6,6 @@ const postStore = usePostStore();
 const columns = [
   { name: 'image', label: 'Image', align: 'center', field: 'images' },
   { name: 'content', label: 'Content', align: 'left', field: 'content' },
-  { name: 'actions', label: 'Actions', align: 'center', field: 'actions' },
 ];
 const pagination = ref({
   sortBy: 'created_at',
@@ -19,10 +18,12 @@ const posts = ref([]);
 const openPost = ref(false);
 const slide = ref(0);
 const clickedPost = ref(null);
+const loading = ref(true);
 
 onMounted(async () => {
   await postStore.fetchPosts();
-  posts.value = postStore.data;
+  posts.value = postStore.posts;
+  loading.value = false;
   console.log(posts.value);
 });
 
@@ -43,28 +44,36 @@ const openPostDialog = (evt, row) => {
 </script>
 
 <template>
-  <q-page padding>
+  <!-- TODO add mobile layout -->
+  <q-page padding class="row justify-center">
     <q-table
       :columns="columns"
-      :rows="posts.data"
+      :rows="posts"
       hide-header
       v-model:pagination="pagination"
       table-style="width: 75vw"
       @row-click="openPostDialog"
+      :loading="loading"
     >
+      <template v-slot:loading>
+        <q-inner-loading showing color="primary" />
+      </template>
       <template #body-cell-image="props">
         <td>
           <q-img
             :src="`http://localhost:3000/images/posts/${props.row.images[0].image_url}`"
             width="25vw"
-          ></q-img>
+          >
+          </q-img>
         </td>
       </template>
       <template #body-cell-content="props">
         <td>
           <p class="text-h4">{{ props.row.title }}</p>
           <p class="test-subtitle-2">{{ strToDt(props.row.created_at) }}</p>
-          <p class="text-body-1 text-wrap">{{ shortStr(props.row.content) }}</p>
+          <p class="text-body-1" style="word-break: normal; white-space: normal">
+            {{ shortStr(props.row.content) }}
+          </p>
         </td>
       </template>
     </q-table>

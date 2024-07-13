@@ -1,14 +1,33 @@
 <script setup>
-const lorem =
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
+import { ref, onMounted } from 'vue';
+import { usePostStore } from '@/stores/posts.js';
+
+const postStore = usePostStore();
+
+const prevThreePosts = ref([]);
+
+onMounted(async () => {
+  await postStore.fetchPosts();
+  prevThreePosts.value = postStore.posts.slice(0, 3);
+  console.log(prevThreePosts.value);
+});
+
+const shortStr = (str) => {
+  return str.length > 500 ? str.substring(0, 500) + '...' : str;
+};
+
+const strToDt = (str) => {
+  return new Date(str).toLocaleDateString('sq-AL');
+};
 </script>
 
 <template>
-  <q-page padding>
-    <div class="center">
-      <q-img src="/images/placeholder.jpg" width="75vw" height="75vh"
-        ><div class="absolute-full text-h1 flex flex-center">Home</div>
-      </q-img>
+  <q-page padding class="row justify-center">
+    <q-img src="/images/placeholder.jpg" width="90vw" height="75vh"
+      ><div class="absolute-full text-h1 flex flex-center">Home</div>
+    </q-img>
+    <div class="row">
+      <!-- TODO fix this section -->
       <div class="row q-my-md">
         <div class="col">
           <p>Lorem Ipsum</p>
@@ -27,44 +46,20 @@ const lorem =
         </div>
         <div class="col"><q-img src="/images/placeholder.jpg"></q-img></div>
       </div>
-      <div class="q-pa-md row items-start q-gutter-md">
-        <q-card class="my-card">
-          <img src="https://cdn.quasar.dev/img/mountains.jpg" />
+    </div>
+    <div class="q-pa-md row items-start q-gutter-md">
+      <q-card v-for="p in prevThreePosts" :key="p.post_id" class="my-card">
+        <img :src="`http://localhost:3000/images/posts/${p.images[0].image_url}`" />
 
-          <q-card-section>
-            <div class="text-h6">Our Changing Planet</div>
-            <div class="text-subtitle2">by John Doe</div>
-          </q-card-section>
+        <q-card-section>
+          <div class="text-h6">{{ p.title }}</div>
+          <div class="text-subtitle2">{{ strToDt(p.created_at) }}</div>
+        </q-card-section>
 
-          <q-card-section class="q-pt-none">
-            {{ lorem }}
-          </q-card-section>
-        </q-card>
-        <q-card class="my-card">
-          <img src="https://cdn.quasar.dev/img/mountains.jpg" />
-
-          <q-card-section>
-            <div class="text-h6">Our Changing Planet</div>
-            <div class="text-subtitle2">by John Doe</div>
-          </q-card-section>
-
-          <q-card-section class="q-pt-none">
-            {{ lorem }}
-          </q-card-section>
-        </q-card>
-        <q-card class="my-card">
-          <img src="https://cdn.quasar.dev/img/mountains.jpg" />
-
-          <q-card-section>
-            <div class="text-h6">Our Changing Planet</div>
-            <div class="text-subtitle2">by John Doe</div>
-          </q-card-section>
-
-          <q-card-section class="q-pt-none">
-            {{ lorem }}
-          </q-card-section>
-        </q-card>
-      </div>
+        <q-card-section class="q-pt-none">
+          {{ shortStr(p.content) }}
+        </q-card-section>
+      </q-card>
     </div>
   </q-page>
 </template>

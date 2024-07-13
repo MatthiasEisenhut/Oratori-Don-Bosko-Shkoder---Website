@@ -60,10 +60,7 @@ const openAnimatorDialog = (evt, row) => {
       </template>
       <template #body-cell-image="props">
         <td>
-          <q-img
-            :src="`http://localhost:3000/images/animators/${props.row.image}`"
-            width="10vw"
-          ></q-img>
+          <q-img :src="`${props.row.image}`" width="10vw"></q-img>
         </td>
       </template>
       <template #body-cell-content="props">

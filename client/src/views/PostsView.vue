@@ -60,11 +60,7 @@ const openPostDialog = (evt, row) => {
       </template>
       <template #body-cell-image="props">
         <td>
-          <q-img
-            :src="`http://localhost:3000/images/posts/${props.row.images[0].image_url}`"
-            width="25vw"
-          >
-          </q-img>
+          <q-img :src="`${props.row.images[0].image_url}`" width="25vw"> </q-img>
         </td>
       </template>
       <template #body-cell-content="props">

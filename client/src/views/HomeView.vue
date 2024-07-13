@@ -49,7 +49,7 @@ const strToDt = (str) => {
     </div>
     <div class="q-pa-md row items-start q-gutter-md">
       <q-card v-for="p in prevThreePosts" :key="p.post_id" class="my-card">
-        <img :src="`http://localhost:3000/images/posts/${p.images[0].image_url}`" />
+        <img :src="`${p.images[0].image_url}`" />
 
         <q-card-section>
           <div class="text-h6">{{ p.title }}</div>

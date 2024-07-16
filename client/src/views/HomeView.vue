@@ -22,11 +22,11 @@ const strToDt = (str) => {
 </script>
 
 <template>
-  <q-page padding class="row justify-center">
+  <q-page padding class="column items-center">
     <q-img src="/images/placeholder.jpg" width="90vw" height="75vh"
       ><div class="absolute-full text-h1 flex flex-center">Home</div>
     </q-img>
-    <div class="row">
+    <div class="col" style="overflow: auto; min-width: 100rem; max-width: 100rem">
       <!-- TODO fix this section -->
       <div class="row q-my-md">
         <div class="col">

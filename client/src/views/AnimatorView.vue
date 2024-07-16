@@ -79,7 +79,7 @@ const openAnimatorDialog = (evt, row) => {
           <q-btn icon="close" flat round dense v-close-popup />
         </q-card-section>
 
-        <img :src="`http://localhost:3000/images/animators/${clickedAnimator.image}`" />
+        <img :src="`${clickedAnimator.image}`" />
 
         <q-card-section>
           <div class="text-h6">{{ clickedAnimator.name }}</div>

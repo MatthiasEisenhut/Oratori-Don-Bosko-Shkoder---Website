@@ -85,7 +85,7 @@ const openPostDialog = (evt, row) => {
           <q-carousel-slide
             v-for="(i, k) in clickedPost.images"
             :key="i.image_id"
-            :img-src="`http://localhost:3000/images/posts/${i.image_url}`"
+            :img-src="`${i.image_url}`"
             :name="k"
           >
           </q-carousel-slide>

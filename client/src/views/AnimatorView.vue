@@ -72,7 +72,7 @@ const openAnimatorDialog = (evt, row) => {
       </template>
     </q-table>
     <q-dialog v-model="openAnimator" full-height
-      ><q-card class="my-card">
+      ><q-card class="my-card font-montserrat">
         <q-card-section class="row items-center">
           <div class="text-h6"></div>
           <q-space />

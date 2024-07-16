@@ -26,7 +26,7 @@ const strToDt = (str) => {
     <q-img src="/images/placeholder.jpg" width="90vw" height="75vh"
       ><div class="absolute-full text-h1 flex flex-center">Home</div>
     </q-img>
-    <div class="col" style="overflow: auto; min-width: 100rem; max-width: 100rem">
+    <div class="col" style="overflow: auto; min-width: 90vw; max-width: 90vw">
       <!-- TODO fix this section -->
       <div class="row q-my-md">
         <div class="col">
@@ -47,7 +47,7 @@ const strToDt = (str) => {
         <div class="col"><q-img src="/images/placeholder.jpg"></q-img></div>
       </div>
     </div>
-    <div class="q-pa-md row items-start q-gutter-md">
+    <div class="q-pa-md row items-start justify-center q-gutter-md">
       <q-card v-for="p in prevThreePosts" :key="p.post_id" class="my-card">
         <img :src="`${p.images[0].image_url}`" />
 

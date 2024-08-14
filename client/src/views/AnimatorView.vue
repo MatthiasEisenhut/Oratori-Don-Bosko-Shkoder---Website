@@ -46,6 +46,9 @@ const openAnimatorDialog = (evt, row) => {
 
 <template>
   <q-page padding class="row justify-center">
+    <q-img src="/images/placeholder.jpg" width="90vw" height="75vh" class="q-mb-lg"
+      ><div class="absolute-full text-h1 flex flex-center">Our Animators</div>
+    </q-img>
     <q-table
       :columns="columns"
       :rows="animators"
@@ -79,7 +82,7 @@ const openAnimatorDialog = (evt, row) => {
           <q-btn icon="close" flat round dense v-close-popup />
         </q-card-section>
 
-        <img :src="`${clickedAnimator.image}`" />
+        <q-img :src="`${clickedAnimator.image}`" width="10vw" />
 
         <q-card-section>
           <div class="text-h6">{{ clickedAnimator.name }}</div>

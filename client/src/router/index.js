@@ -6,6 +6,7 @@ import FootballView from '@/views/FootballView.vue';
 import ContactView from '@/views/ContactView.vue';
 import AnimatorView from '@/views/AnimatorView.vue';
 import AdminLoginView from '@/views/AdminLoginView.vue';
+import OratoryView from '@/views/OratoryView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -14,6 +15,11 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView,
+    },
+    {
+      path: '/oratory',
+      name: 'oratory',
+      component: OratoryView,
     },
     // {
     //   path: '/calendar',

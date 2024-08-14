@@ -15,9 +15,10 @@ const openMobileNavMenu = ref(false);
       <q-tabs>
         <q-route-tab to="/" label="Home" class="q-mx-md" />
         <!-- <q-route-tab to="/calendar" label="Calendar" class="q-mx-md" /> -->
-        <q-route-tab to="/posts" label="Oratory News" class="q-mx-md" />
-        <q-route-tab to="/football" label="Akademia Futbol" class="q-mx-md" />
+        <q-route-tab to="/oratory" label="Oratory" class="q-mx-md" />
+        <q-route-tab to="/football" label="Soccer Academy" class="q-mx-md" />
         <q-route-tab to="/animators" label="Our Animators" class="q-mx-md" />
+        <q-route-tab to="/posts" label="News" class="q-mx-md" />
       </q-tabs>
       <q-space />
       <q-btn
@@ -25,6 +26,7 @@ const openMobileNavMenu = ref(false);
         label="Social"
         class="q-mx-md"
         href="https://www.instagram.com/oratori_db_shkoder/"
+        target="_blank"
         icon-right="fa-solid fa-arrow-up-right-from-square"
       />
       <q-btn flat label="Contact" class="q-mx-md" to="/contact" />
@@ -54,25 +56,25 @@ const openMobileNavMenu = ref(false);
             <q-tabs vertical indicator-color="transparent" active-color="white">
               <q-route-tab to="/" label="Home" class="q-mx-md" />
               <!-- <q-route-tab to="/calendar" label="Calendar" class="q-mx-md" /> -->
-              <q-route-tab to="/posts" label="Oratory News" class="q-mx-md" />
-              <q-route-tab to="/football" label="Akademia Futbol" class="q-mx-md" />
+              <q-route-tab to="/oratory" label="Oratory" class="q-mx-md" />
+              <q-route-tab to="/football" label="Soccer Academy" class="q-mx-md" />
               <q-route-tab to="/animators" label="Our Animators" class="q-mx-md" />
+              <q-route-tab to="/posts" label="News" class="q-mx-md" />
             </q-tabs>
           </q-card-section>
 
           <q-separator color="white" />
 
-          <q-card-section>
-            <div class="row justify-center">
-              <q-btn
-                flat
-                label="Social"
-                class="q-mx-md"
-                href="https://www.instagram.com/oratori_db_shkoder/"
-                icon-right="fa-solid fa-arrow-up-right-from-square"
-              />
-              <q-btn flat label="Contact" class="q-mx-md" to="/contact" />
-            </div>
+          <q-card-section class="row justify-center">
+            <q-btn
+              flat
+              label="Social"
+              class="q-mx-md"
+              href="https://www.instagram.com/oratori_db_shkoder/"
+              target="_blank"
+              icon-right="fa-solid fa-arrow-up-right-from-square"
+            />
+            <q-btn flat label="Contact" class="q-mx-md" to="/contact" />
           </q-card-section>
         </q-card>
       </q-dialog>

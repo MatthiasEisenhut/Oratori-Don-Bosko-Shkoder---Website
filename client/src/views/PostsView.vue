@@ -46,6 +46,9 @@ const openPostDialog = (evt, row) => {
 <template>
   <!-- TODO add mobile layout -->
   <q-page padding class="row justify-center">
+    <q-img src="/images/placeholder.jpg" width="90vw" height="75vh" class="q-mb-lg"
+      ><div class="absolute-full text-h1 flex flex-center">News</div>
+    </q-img>
     <q-table
       :columns="columns"
       :rows="posts"

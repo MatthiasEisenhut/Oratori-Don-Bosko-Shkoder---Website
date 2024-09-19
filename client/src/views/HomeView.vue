@@ -25,7 +25,8 @@ const strToDt = (str) => {
 </script>
 
 <template>
-  <q-page padding class="column items-center">
+  <!-- Desktop Version -->
+  <q-page padding class="gt-xs column items-center">
     <q-img src="/images/placeholder.jpg" width="90vw" height="75vh"
       ><div class="absolute-full text-h1 flex flex-center">Home</div>
     </q-img>
@@ -55,6 +56,53 @@ const strToDt = (str) => {
       </div>
     </div>
     <p class="text-h3 text-weight-bold q-mt-md">Latest News:</p>
+    <div class="q-pa-md row items-start justify-center q-gutter-md">
+      <q-card v-for="p in prevThreePosts" :key="p.post_id" class="my-card">
+        <img :src="`${p.images[0].image_url}`" />
+
+        <q-card-section>
+          <div class="text-h6">{{ p.title }}</div>
+          <div class="text-subtitle2">{{ strToDt(p.created_at) }}</div>
+        </q-card-section>
+
+        <q-card-section class="q-pt-none">
+          {{ shortStr(p.content) }}
+        </q-card-section>
+      </q-card>
+    </div>
+  </q-page>
+
+  <!-- Mobile Version -->
+  <q-page padding class="xs column items-center">
+    <q-img src="/images/placeholder.jpg" width="90vw" height="50vh"
+      ><div class="absolute-full text-h3 flex flex-center">Home</div>
+    </q-img>
+    <div class="" style="overflow: auto; min-width: 90vw; max-width: 90vw">
+      <div class="q-my-md">
+        <div class="col column flex-center">
+          <p class="text-h4 text-weight-bold">Opening Hours:</p>
+          <p class="text-h4 text-center">{{ openingHours }}</p>
+        </div>
+        <div class=""><q-img src="/images/placeholder.jpg"></q-img></div>
+      </div>
+      <div class="q-my-md">
+        <div class="column flex-center">
+          <p class="text-h4 text-weight-bold">Formation Groups:</p>
+          <p class="text-h4 text-center">{{ formationGroupTimes }}</p>
+        </div>
+        <div class="">
+          <q-img src="/images/placeholder.jpg"></q-img>
+        </div>
+      </div>
+      <div class="q-my-md">
+        <div class="column flex-center">
+          <p class="text-h4 text-weight-bold">Catechism:</p>
+          <p class="text-h4 text-center">{{ catechismTimes }}</p>
+        </div>
+        <div class=""><q-img src="/images/placeholder.jpg"></q-img></div>
+      </div>
+    </div>
+    <p class="text-h4 text-weight-bold q-mt-md">Latest News:</p>
     <div class="q-pa-md row items-start justify-center q-gutter-md">
       <q-card v-for="p in prevThreePosts" :key="p.post_id" class="my-card">
         <img :src="`${p.images[0].image_url}`" />

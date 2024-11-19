@@ -67,7 +67,7 @@
   <!-- Mobile Version -->
   <q-page padding class="xs column items-center">
     <q-img src="/images/placeholder.jpg" width="90vw" height="50vh" class="q-mb-md"
-      ><div class="absolute-full text-h3 flex flex-center">Oratory</div>
+      ><div class="absolute-full text-h3 flex flex-center text-center">Oratory</div>
     </q-img>
     <div class="" style="overflow: auto; min-width: 90vw; max-width: 90vw">
       <div class="q-my-md">

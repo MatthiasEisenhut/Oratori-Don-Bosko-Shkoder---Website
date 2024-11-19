@@ -70,12 +70,15 @@ const strToDt = (str) => {
         </q-card-section>
       </q-card>
     </div>
+    <div class="row justify-end">
+      <q-btn to="/posts">More</q-btn>
+    </div>
   </q-page>
 
   <!-- Mobile Version -->
   <q-page padding class="xs column items-center">
     <q-img src="/images/placeholder.jpg" width="90vw" height="50vh"
-      ><div class="absolute-full text-h3 flex flex-center">Home</div>
+      ><div class="absolute-full text-h3 flex flex-center text-center">Home</div>
     </q-img>
     <div class="" style="overflow: auto; min-width: 90vw; max-width: 90vw">
       <div class="q-my-md">
@@ -117,6 +120,9 @@ const strToDt = (str) => {
         </q-card-section>
       </q-card>
     </div>
+    <div class="row justify-end">
+      <q-btn to="/posts">More</q-btn>
+    </div>  
   </q-page>
 </template>
 

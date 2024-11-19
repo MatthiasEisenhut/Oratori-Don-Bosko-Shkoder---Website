@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { query } from '../../db/index.js';
 
 const dbGetAnimators = async () => {
-  const { rows } = await query('SELECT * FROM animators;');
+  const { rows } = await query('SELECT * FROM animators ORDER BY dateofbirth;');
   return rows;
 };
 

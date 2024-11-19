@@ -45,7 +45,8 @@ const openAnimatorDialog = (evt, row) => {
 </script>
 
 <template>
-  <q-page padding class="row justify-center">
+  <!-- Desktop Version -->
+  <q-page padding class="gt-xs row justify-center">
     <q-img src="/images/placeholder.jpg" width="90vw" height="75vh" class="q-mb-lg"
       ><div class="absolute-full text-h1 flex flex-center">Our Animators</div>
     </q-img>
@@ -81,9 +82,67 @@ const openAnimatorDialog = (evt, row) => {
           <q-space />
           <q-btn icon="close" flat round dense v-close-popup />
         </q-card-section>
+        <q-card-section class="row justify-center">
+          <q-img :src="`${clickedAnimator.image}`" width="10vw" />
+        </q-card-section>
+        <q-card-section>
+          <div class="text-h6">{{ clickedAnimator.name }}</div>
+          <div class="text-subtitle2">Age: {{ calcAge(clickedAnimator.dateofbirth) }}</div>
+        </q-card-section>
 
-        <q-img :src="`${clickedAnimator.image}`" width="10vw" />
+        <q-card-section class="q-pt-none">
+          {{ clickedAnimator.aboutme }}
+        </q-card-section>
+      </q-card></q-dialog
+    >
+  </q-page>
 
+  <!-- Mobile Version -->
+  <q-page padding class="xs row justify-center">
+    <q-img src="/images/placeholder.jpg" width="90vw" height="75vh" class="q-mb-lg"
+      ><div class="absolute-full text-h3 flex flex-center text-center">Our Animators</div>
+    </q-img>
+    <q-table
+      :columns="columns"
+      :rows="animators"
+      hide-header
+      v-model:pagination="pagination"
+      table-style="width: 75vw"
+      @row-click="openAnimatorDialog"
+      :loading="loading"
+    >
+      <template v-slot:loading>
+        <q-inner-loading showing color="primary" />
+      </template>
+      <template #body-cell-image="props">
+        <td>
+          <q-img :src="`${props.row.image}`" width="30vw"></q-img>
+        </td>
+      </template>
+      <template #body-cell-content="props">
+        <td>
+          <p class="text-body-1" style="word-break: normal; white-space: normal">
+            Name: {{ props.row.name }}
+          </p>
+          <p class="text-body-1" style="word-break: normal; white-space: normal">
+            Age: {{ calcAge(props.row.dateofbirth) }}
+          </p>
+          <p class="text-body-1" style="word-break: normal; white-space: normal">
+            Birthday: {{ strToDt(props.row.dateofbirth) }}
+          </p>
+        </td>
+      </template>
+    </q-table>
+    <q-dialog v-model="openAnimator" full-height
+      ><q-card class="my-card font-montserrat">
+        <q-card-section class="row items-center">
+          <div class="text-h6"></div>
+          <q-space />
+          <q-btn icon="close" flat round dense v-close-popup />
+        </q-card-section>
+        <q-card-section class="row justify-center">
+          <q-img :src="`${clickedAnimator.image}`" width="50vw" />
+        </q-card-section>
         <q-card-section>
           <div class="text-h6">{{ clickedAnimator.name }}</div>
           <div class="text-subtitle2">Age: {{ calcAge(clickedAnimator.dateofbirth) }}</div>

@@ -12,7 +12,6 @@ const catechismTimes = ref('Friday, 17:00 - 18:00');
 onMounted(async () => {
   await postStore.fetchPosts();
   prevThreePosts.value = postStore.posts.slice(0, 3);
-  console.log(prevThreePosts.value);
 });
 
 const shortStr = (str) => {
@@ -122,7 +121,7 @@ const strToDt = (str) => {
     </div>
     <div class="row justify-end">
       <q-btn to="/posts">More</q-btn>
-    </div>  
+    </div>
   </q-page>
 </template>
 

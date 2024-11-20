@@ -7,6 +7,7 @@ const columns = [
   { name: 'image', label: 'Image', align: 'center', field: 'images' },
   { name: 'content', label: 'Content', align: 'left', field: 'content' },
 ];
+const mobileColumns = [{ name: 'content', label: 'Content', align: 'left', field: 'content' }];
 const pagination = ref({
   sortBy: 'created_at',
   descending: true,
@@ -39,12 +40,10 @@ const openPostDialog = (evt, row) => {
   openPost.value = true;
   clickedPost.value = row;
   slide.value = 0;
-  console.log(row);
 };
 </script>
 
 <template>
-  <!-- TODO add mobile layout -->
   <q-page padding class="gt-xs row justify-center">
     <q-img src="/images/placeholder.jpg" width="90vw" height="75vh" class="q-mb-lg"
       ><div class="absolute-full text-h1 flex flex-center">News</div>
@@ -112,7 +111,7 @@ const openPostDialog = (evt, row) => {
       ><div class="absolute-full text-h3 flex flex-center text-center">News</div>
     </q-img>
     <q-table
-      :columns="columns"
+      :columns="mobileColumns"
       :rows="posts"
       hide-header
       v-model:pagination="pagination"
@@ -123,16 +122,20 @@ const openPostDialog = (evt, row) => {
       <template v-slot:loading>
         <q-inner-loading showing color="primary" />
       </template>
-      <template #body-cell-image="props">
-        <td></td>
-      </template>
       <template #body-cell-content="props">
         <td>
-          <q-img :src="`${props.row.images[0].image_url}`" width="100vw"> </q-img>
-          <p class="text-h4">{{ props.row.title }}</p>
-          <p class="test-subtitle-2">{{ strToDt(props.row.created_at) }}</p>
-          <p class="text-body-1" style="word-break: normal; white-space: normal">
-            {{ shortStr(props.row.content) }}
+          <div class="row justify-center">
+            <q-img
+              :src="`${props.row.images[0].image_url}`"
+              width="60vw"
+              class="justify-center"
+            ></q-img>
+          </div>
+          <p class="text-h6" style="word-break: normal; white-space: normal">
+            {{ props.row.title }}
+          </p>
+          <p class="test-subtitle-2" style="word-break: normal; white-space: normal">
+            {{ strToDt(props.row.created_at) }}
           </p>
         </td>
       </template>

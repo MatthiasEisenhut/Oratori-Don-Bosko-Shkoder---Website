@@ -22,12 +22,11 @@ onMounted(async () => {
   await contactStore.fetchContacts();
   contacts.value = contactStore.contacts;
   loading.value = false;
-  console.log(contacts.value);
 });
 </script>
 
 <template>
-  <q-page padding class="row justify-center">
+  <q-page padding class="gt-xs row justify-center">
     <q-table
       :columns="columns"
       :rows="contacts"
@@ -49,6 +48,45 @@ onMounted(async () => {
           <p class="text-h4">Name: {{ props.row.name }}</p>
           <p class="text-h4" v-if="props.row.email">Email: {{ props.row.email }}</p>
           <p class="text-h4" v-if="props.row.phone">Phone: {{ props.row.phone }}</p>
+        </td>
+      </template>
+    </q-table>
+  </q-page>
+
+  <q-page padding class="xs row justify-center">
+    <q-table
+      :columns="columns"
+      :rows="contacts"
+      hide-header
+      v-model:pagination="pagination"
+      table-style="width: 75vw"
+      :loading="loading"
+    >
+      <template v-slot:loading>
+        <q-inner-loading showing color="primary" />
+      </template>
+      <template #body-cell-image="props">
+        <td>
+          <q-img :src="`${props.row.image}`" width="15vw"></q-img>
+        </td>
+      </template>
+      <template #body-cell-content="props">
+        <td>
+          <p class="text-body-1">Name: {{ props.row.name }}</p>
+          <p
+            class="text-body-1"
+            style="word-break: normal; white-space: normal"
+            v-if="props.row.email"
+          >
+            Email: {{ props.row.email }}
+          </p>
+          <p
+            class="text-body-1"
+            style="word-break: normal; white-space: normal"
+            v-if="props.row.phone"
+          >
+            Phone: {{ props.row.phone }}
+          </p>
         </td>
       </template>
     </q-table>

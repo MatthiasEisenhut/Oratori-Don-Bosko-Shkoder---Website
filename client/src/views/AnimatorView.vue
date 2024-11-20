@@ -24,7 +24,6 @@ onMounted(async () => {
   await animatorStore.fetchAnimators();
   animators.value = animatorStore.animators;
   loading.value = false;
-  console.log(animators.value);
 });
 
 const calcAge = (dob) => {
@@ -40,7 +39,6 @@ const strToDt = (str) => {
 const openAnimatorDialog = (evt, row) => {
   openAnimator.value = true;
   clickedAnimator.value = row;
-  console.log(row);
 };
 </script>
 
@@ -83,7 +81,7 @@ const openAnimatorDialog = (evt, row) => {
           <q-btn icon="close" flat round dense v-close-popup />
         </q-card-section>
         <q-card-section class="row justify-center">
-          <q-img :src="`${clickedAnimator.image}`" width="10vw" />
+          <q-img :src="`${clickedAnimator.image}`" width="10vw"></q-img>
         </q-card-section>
         <q-card-section>
           <div class="text-h6">{{ clickedAnimator.name }}</div>
